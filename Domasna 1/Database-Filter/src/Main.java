@@ -13,8 +13,10 @@ public class Main {
             int[] selectedColumnIndices = {0, 1, 2, 7, 15};
             AttributesFilter attributesFilter = new AttributesFilter(selectedColumnIndices);
             RemoveNullNamesFilter removeNullNamesFilter = new RemoveNullNamesFilter();
+            NumberNamesFilter numberNamesFilter = new NumberNamesFilter();
             pipe.addFilter(attributesFilter);
             pipe.addFilter(removeNullNamesFilter);
+            pipe.addFilter(numberNamesFilter);
             String line;
             while ((line = reader.readLine()) != null) {
                 String filteredLine = pipe.runFilter(line);

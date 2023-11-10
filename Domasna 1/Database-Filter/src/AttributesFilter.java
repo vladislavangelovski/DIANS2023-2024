@@ -19,6 +19,7 @@ public class AttributesFilter implements Filter<String>{
             }
         }
         input = filteredLine.toString();
+        input = input.substring(0, input.length()-2);
         return input;
     }
 }
