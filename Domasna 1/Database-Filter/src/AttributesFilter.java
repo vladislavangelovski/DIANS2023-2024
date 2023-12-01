@@ -12,7 +12,8 @@ public class AttributesFilter implements Filter<String>{
         StringBuilder filteredLine = new StringBuilder();
         for(int columnIndex : columnIndices){
             if(columnIndex >= 0 && columnIndex < fields.length) {
-                filteredLine.append(fields[columnIndex]).append(",");
+                String fieldValue = fields[columnIndex];
+                filteredLine.append(fieldValue != null ? fieldValue : "").append(",");
             }
             else {
                 filteredLine.append(",");
