@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org"> -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,61 +17,24 @@
             crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/style.css">
     <script src="/script.js"></script>
-    <link rel="stylesheet" href="/style.css">
 
-    <style>
-        .dataTables_wrapper .dataTables_paginate {
-            text-align: center;
-            color: white;
-        }
-
-        .dataTables_wrapper .dataTables_paginate .paginate_button {
-            display: inline-block;
-            margin: 0 5px;
-            background-color: rgba(0, 0, 0, 0.7);
-            color: white;
-        }
-        .table {
-            background-color: rgba(0, 0, 0, 0.7);
-            color: white;
-        }
-        .dataTables_wrapper .dataTables_paginate .paginate_button.disabled {
-            background-color: rgb(73, 80, 87);
-        }
-        .dataTables_wrapper .dataTables_paginate .paginate_button.current {
-            background-color: white;
-            color: black !important;
-        }
-        #myTable {
-            width: 50%;
-        }
-    </style>
 
 </head>
 
 <body>
 <div id="nav">
-    <a class = "navs" href="/about-us" style="margin:25px 25vw 29px 5vw; padding-top: 25px;">About Us</a>
-    <a  class = "navs" href="/home" style="margin:25px 0vw 25px 0vw; color: yellow; padding-top: 25px;">Cool</a>
-    <img onclick="window.location='home.html'" src="/poentatanazhivotot.png" style="margin: 0;">
-    <a class = "navs" href="/home" style="margin:25px 17vw 25px 0vw; color: yellow; padding-top: 25px;">Tour</a>
-    <a class = "navs"  href="/login" style="margin: 25px 0vw 25px 5vw; padding-top: 25px;">Log in</a>
-    <a class = "navs" href="/register" style="margin:25px 5vw 25px 3vw ; padding-top: 25px;">Register</a>
+    <a class = "navs" href="/about-us" id="AS">About Us</a>
+    <a  class = "navs" href="/home"  id="Cool" style="color: yellow;">Cool</a>
+    <img class="navs" id="logo" onclick="window.location.href='/home'" src="/poentatanazhivotot.png" >
+    <a class = "navs" href="/home" id="Tour" style="color: yellow;">Tour</a>
+    <a class = "navs"  href="/login" id="Log">Log in</a>
+    <a class = "navs" href="/register" id="Reg" >Register</a>
 </div>
-<div id="bg" style="transition: background-image 0.5s ease-in-out;
-    background-position: center center;
-    background-repeat: no-repeat;
-    text-align:center;
-    margin:0px;
-    background-size: cover;
-    padding:0;
-    background-image:url('/default.png');
-    background-size: cover;
-    height: 100vh;">
+<div id="bg">
 
-    <div style="display: inline-flex; justify-content: center; height: 100px;">
-        <input type="text" value="Search for something.." style="color: grey; height: 42px; margin: 30px 5px; width: 300px;">
-        <select value="Филтрирај според категорија.." name="category" id="category" style="width: 300px; height: 47px; margin: 30px 5px;">
+    <div id="input">
+        <input type="text" value="Search for something.." id="searchinput">
+        <select value="Филтрирај според категорија.." name="category" id="category">
             <option value="site" selected>Сите објекти</option>
             <option value="aircraft">Урнатини од авиони</option>
             <option value="archeological_site">Археолошки локалитети</option>
@@ -85,35 +48,14 @@
             <option value="monument">Споменици</option>
 
         </select>
-        <button onclick="Search()" style="width: 115px; height: 47px; margin: 30px 5px;">Search</button>
+        <button onclick="Search()" id="search">Search</button>
 
     </div>
-<!--    <div style="display: inline-flex; justify-content: center;">-->
-<!--        <div style="width:45%; height:60%; background-color:white;opacity: 100%; border: yellow 5px solid;"></div>-->
-<!--        <div style="width:15%; height:60%; background-color:white;opacity: 70%; border: yellow 5px solid;"></div>-->
-<!--    </div>-->
-    <div class="table-responsive ">
-        <table id="myTable" class="table table-striped">
-            <thead>
-            <tr>
-                <th scope="col">Latitude</th>
-                <th scope="col">Longitude</th>
-                <th scope="col">Name</th>
-                <th scope="col">Type</th>
-                <th scope="col">Wikidata</th>
-            </tr>
-            </thead>
-            <tbody >
-            <tr th:each="object : ${objects}" class="movie">
-                <td th:text="${object.latitude}"></td>
-                <td th:text="${object.longitude}"></td>
-                <td th:text="${object.name}"></td>
-                <td th:text="${object.type}"></td>
-                <td th:text="${object.wikidata}"></td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
+   <div id="main">
+        <div id="map"></div>
+       <div id="object"></div>
+   </div> 
+    
 
 </div>
 </body>

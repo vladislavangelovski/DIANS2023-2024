@@ -9,24 +9,375 @@ div {
     width: 100vw;
     height: 100vh;
 }
-.navs{
-    color: white;
-    font-size: 40px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+a:link { text-decoration: none; }
+
+
+a:visited { text-decoration: none; }
+
+
+a:hover { text-decoration: none; }
+
+
+a:active { text-decoration: none; }
+#name{
+    opacity: 100%; color:grey; width: 25vw; height: 3vh;
+  }
+  #surname{
+    margin-top: 20px;  opacity: 100%; color:grey; width: 25vw; height: 3vh;
+  }
+  #user{
+    opacity: 100%; color:grey; width: 25vw; height: 3vh;
+  }
+  #email{
+    opacity: 100%; color:grey; width: 25vw; height: 3vh;
+  }
+  #pas1{
+    opacity: 100%; color:grey; width: 25vw; height: 3vh;
+  }
+  #pas2{
+    margin-top: 20px; opacity: 100%; color:grey;width: 25vw;height: 3vh;
+  }
+  #regbut{
+    margin-top: 40px; background-color: yellow; height: 40px; width: 100px;
+  }
+input{
+min-width: 200px;
+}
+  p{
+   font-size: x-large; color: yellow; justify-content: right;
+  }
+  #regbg{
+     border: black 2px solid; background-color: rgba(0, 0, 0, 0.7); width: 70vw; height: 80vh; margin:auto; padding-top: 50px; display: block;
+  }
+  #part{
+   height: fit-content;
+    width: 70vw;
+    
+    display: flex;
+    justify-content: center;
+  }
+a{
     text-decoration: none;
-}
-p{
     color: white;
-    font-size: 40px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+        #bg{
+            width: 100vw;
+            transition: background-image 0.5s ease-in-out;
+            background-position: center center;
+            background-repeat: no-repeat;
+            text-align:center;
+            margin:0px;
+            background-size: cover;
+            padding:0;
+            background-image:url('/default.png');
+            background-size: cover;
+            height: 100vh;
+            padding-top: 1vw;
+        }
+        #nav{
+            background-color: black;
+            margin: auto;
+            justify-content: space-between;
+            width: 100vw;
+            height:15vh;
+            display: flex;
+            flex-wrap: nowrap;
+        }
+        .navs{
+           
+            font-size: 50px;
+        }
+        #nav > *{
+         margin: auto;
+        }
+        #nav > *:nth-child(1){
+         padding-left: 5vw;
+          flex: 0 1 35vw;
+          margin: auto;
+          
+        }
+        #nav > *:nth-child(2){
+            flex: 1 1 20vw;
+            text-align: right;
+        }
+
+        #nav > *:nth-child(3){
+        height: 7vw;
+        width: 10vw;
+        min-width: 45px;
+        min-height: 45px;
+        }
+        #nav > *:nth-child(4){
+            flex: 1 1 20vw;
+        }
+        #nav > *:nth-child(5){
+            flex: 0 1 20vw;
+            padding-right: 5px;
+        }
+        #nav > *:nth-child(6){
+            margin-right: 15px;
+            flex: 0 1 20vw;
+        }
+        #main{
+            display: inline-flex; justify-content: center; margin-top: 1vw;
+        }
+        #map{
+            width:55vw; height:60vh; background-color:red;opacity: 100%; border: yellow 5px solid;
+            min-width: 450px;
+        }
+        #object{
+            width:15vw; height:60vh; background-color:white;opacity: 70%; border: yellow 5px solid;
+            min-width: 150px;
+        }
+        #input > *:nth-child(1){
+            width: 30vw;
+            min-width: 280px;
+            height: 5vh;
+            margin: 10px;
+        }
+        #input > *:nth-child(2){
+            width: 30vw;
+            min-width: 180px;
+            height: 5vh;
+            margin: 10px;
+        }
+        #input > *:nth-child(3){
+            height: 5vh;
+            margin: 10px;
+        }
+       
+        #input{
+            height: fit-content;
+            display: inline;
+            justify-content: center;
+           
+        }
+        #search{
+            margin: auto;
+        }
+        #two{
+            color:yellow; font-size: 30px;
+          }
+          #one{
+            color:yellow;font-size: 30px; 
+          }
+
+
+
+
+        @media screen and (max-width: 1100px){
+
+#nav > *{
+   
+     font-size: 35px;
+    }}
+
+    @media screen and (max-width: 800px){
+#nav > *{
+   
+     font-size: 20px;
+    }
+  
+}
+
+    @media screen and (max-width: 500px){
+        #nav{
+            width: 100vw;
+            height: 90px;
+        }
+#nav > *{
+
+     font-size: 18px;
+    }
+  
 
 }
-#nav{
-    border: grey 10px;
-    background-color: black;
 
+    @media screen and (max-width: 400px){
+      
+#nav > *{
+ 
+     font-size: 14px;
+    }
+
+}
+@media screen and (max-width: 600px){
+    #input{
+        display: block;
+    }
+    #main{
+       
+        width: 100vw;
+        height: 500px;
+        display: inline-block;
+    }
+    #map{
+        min-width: 100px;
+        width: 100%;
+        height: 400px;
+    }
+    #object{
+        min-width: none;
+        width: 100vw;
+        height: 150px;
+    }
+   
+  
+}
+@media screen and (max-width: 900px){
+    #input{
+        display: block;
+    }
+    #main{
+       
+        width: 80vw;
+        height: 500px;
+        display: inline-block;
+    }
+    #map{
+        min-width: 100px;
+        width: 100%;
+        height: 400px;
+    }
+    #object{
+        min-width: none;
+        width: 100%;
+        height: 150px;
+    }
+   
+  
+}
+@media screen and (max-height: 600px){
+    #input{
+        display: block;
+    }
+    #main{
+       
+        width: 100%;
+        height: 500px;
+        display: inline-block;
+    }
+    #map{
+        min-width: none;
+        width: 100%;
+        height: 300px;
+    }
+    #object{
+        min-width: none;
+        width: 100%;
+        height: 100px;
+    }
+}
+@media screen and (max-width: 600px){
+    #search{
+        margin-top: 0px;
+        margin: 15px;
+    }
+}
+@media screen and (max-width: 420px){
+    #searchinput{
+        min-width: 200px;
+        width: 220px;
+    }
+}
+
+  @media  screen and (max-width:350px) {
+    #loginbg > :nth-child(1){
+      font-size: large;
+    }
+    #one{
+      font-size: 15px;
+    }
+    #two{
+      font-size: 15px;
+    }
+}
+@media  screen and (max-width:800px) {
+    #loginbg > :nth-child(1){
+      font-size: large;
+    }
+    #one{
+      font-size: 15px;
+    }
+    #two{
+      font-size: 15px;
+    }
+}
+
+  @media  screen and (max-width:1000px) {
+    #part > div:nth-child(1) > input:nth-child(3){
+      margin-top: 0;
+    }
+   #regbg > :nth-child(1){
+    font-size: large;
+    padding-bottom: 10px;
+   }
+ 
+   #part{
+    
     display: block;
-    width: 100vw;
-    height: 150px;
-    display: inline-flex;
-}
+  }
+  p{
+    font-size: medium;
+  }
+  #regbg{
+  padding-top: 15px;
+
+  }
+
+  
+  }
+  @media  screen and (max-width:600px) {
+
+   #regbg > :nth-child(1){
+    padding: 0;
+    
+    font-size: large;
+    
+   }
+   #reglogo{
+    width: 50px;
+    height: 50px;
+   }
+   #part{
+    
+    display: block;
+  }
+  p{
+    font-size: small;
+  }
+
+  
+  }
+  @media  screen and (max-height:700px) {
+    #regbut{
+      height: 30px;
+    }
+    input{
+      height: 10px;
+    }
+    #regbg{
+      padding: 0;
+    }
+   #regbg > :nth-child(1){
+    font-size: small;
+    padding-bottom: 10px;
+   }
+   #reglogo{
+    display: none;
+   }
+   #part{
+    
+    display: block;
+  }
+  p{
+    font-size: smaller;
+  }
+
+  
+  }
+
+
+ 
+  
