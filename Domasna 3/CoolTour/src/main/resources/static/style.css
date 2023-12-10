@@ -5,21 +5,27 @@ body {
     overflow: hidden;
 }
 
-div {
-    width: 100vw;
-    height: 100vh;
+.info-text {
+    color: black;
 }
 
-a:link { text-decoration: none; }
+.navs:link { text-decoration: none; }
 
 
-a:visited { text-decoration: none; }
+.navs:visited { text-decoration: none; }
 
 
-a:hover { text-decoration: none; }
+.navs:hover { text-decoration: none; }
 
 
-a:active { text-decoration: none; }
+.navs:active { text-decoration: none; }
+
+.wikidata-link:link {
+    color: -webkit-link;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 #name{
     opacity: 100%; color:grey; width: 25vw; height: 3vh;
   }
@@ -53,11 +59,11 @@ min-width: 200px;
   #part{
    height: fit-content;
     width: 70vw;
-    
+
     display: flex;
     justify-content: center;
   }
-a{
+.navs{
     text-decoration: none;
     color: white;
 }
@@ -85,7 +91,7 @@ a{
             flex-wrap: nowrap;
         }
         .navs{
-           
+
             font-size: 50px;
         }
         #nav > *{
@@ -95,7 +101,7 @@ a{
          padding-left: 5vw;
           flex: 0 1 35vw;
           margin: auto;
-          
+
         }
         #nav > *:nth-child(2){
             flex: 1 1 20vw;
@@ -123,11 +129,11 @@ a{
             display: inline-flex; justify-content: center; margin-top: 1vw;
         }
         #map{
-            width:55vw; height:60vh; background-color:red;opacity: 100%; border: yellow 5px solid;
+            width:55vw; height:60vh;
             min-width: 450px;
         }
         #object{
-            width:15vw; height:60vh; background-color:white;opacity: 70%; border: yellow 5px solid;
+            width:15vw; height:60vh;
             min-width: 150px;
         }
         #input > *:nth-child(1){
@@ -146,12 +152,12 @@ a{
             height: 5vh;
             margin: 10px;
         }
-       
+
         #input{
             height: fit-content;
             display: inline;
             justify-content: center;
-           
+
         }
         #search{
             margin: auto;
@@ -160,25 +166,22 @@ a{
             color:yellow; font-size: 30px;
           }
           #one{
-            color:yellow;font-size: 30px; 
+            color:yellow;font-size: 30px;
           }
-
-
-
 
         @media screen and (max-width: 1100px){
 
 #nav > *{
-   
+
      font-size: 35px;
     }}
 
     @media screen and (max-width: 800px){
 #nav > *{
-   
+
      font-size: 20px;
     }
-  
+
 }
 
     @media screen and (max-width: 500px){
@@ -190,14 +193,14 @@ a{
 
      font-size: 18px;
     }
-  
+
 
 }
 
     @media screen and (max-width: 400px){
-      
+
 #nav > *{
- 
+
      font-size: 14px;
     }
 
@@ -207,7 +210,7 @@ a{
         display: block;
     }
     #main{
-       
+
         width: 100vw;
         height: 500px;
         display: inline-block;
@@ -218,19 +221,19 @@ a{
         height: 400px;
     }
     #object{
-        min-width: none;
+        min-width: 0;
         width: 100vw;
         height: 150px;
     }
-   
-  
+
+
 }
 @media screen and (max-width: 900px){
     #input{
         display: block;
     }
     #main{
-       
+
         width: 80vw;
         height: 500px;
         display: inline-block;
@@ -241,30 +244,30 @@ a{
         height: 400px;
     }
     #object{
-        min-width: none;
+        min-width: 0;
         width: 100%;
         height: 150px;
     }
-   
-  
+
+
 }
 @media screen and (max-height: 600px){
     #input{
         display: block;
     }
     #main{
-       
+
         width: 100%;
         height: 500px;
         display: inline-block;
     }
     #map{
-        min-width: none;
+        min-width: 0;
         width: 100%;
         height: 300px;
     }
     #object{
-        min-width: none;
+        min-width: 0;
         width: 100%;
         height: 100px;
     }
@@ -313,9 +316,9 @@ a{
     font-size: large;
     padding-bottom: 10px;
    }
- 
+
    #part{
-    
+
     display: block;
   }
   p{
@@ -326,29 +329,29 @@ a{
 
   }
 
-  
+
   }
   @media  screen and (max-width:600px) {
 
    #regbg > :nth-child(1){
     padding: 0;
-    
+
     font-size: large;
-    
+
    }
    #reglogo{
     width: 50px;
     height: 50px;
    }
    #part{
-    
+
     display: block;
   }
   p{
     font-size: small;
   }
 
-  
+
   }
   @media  screen and (max-height:700px) {
     #regbut{
@@ -368,16 +371,10 @@ a{
     display: none;
    }
    #part{
-    
+
     display: block;
   }
   p{
     font-size: smaller;
   }
-
-  
   }
-
-
- 
-  

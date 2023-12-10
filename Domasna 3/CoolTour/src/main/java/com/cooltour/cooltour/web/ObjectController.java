@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("/home")
+@RequestMapping(value = {"/home", "/"})
 public class ObjectController {
     private final ObjectService objectService;
 
@@ -25,5 +25,10 @@ public class ObjectController {
         List<Object> objects = objectService.findAll();
         model.addAttribute("objects", objects);
         return "home";
+    }
+    @GetMapping("/access_denied")
+    public String getAccessDeniedPage(Model model){
+        //TODO Create Access_Denied page
+        return null;
     }
 }

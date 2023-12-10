@@ -1,24 +1,18 @@
 <!DOCTYPE html>
-<!--<html lang="en" xmlns:th="http://www.thymeleaf.org"> -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.8/css/jquery.dataTables.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="/script.js"></script>
-
-
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        const baseUrl = /*[[@{/}]]*/ '';
+        /*]]>*/
+    </script>
 </head>
 
 <body>
@@ -52,11 +46,46 @@
 
     </div>
    <div id="main">
-        <div id="map"></div>
-       <div id="object"></div>
-   </div> 
-    
+       <div id="map"></div>
+       <script th:inline="javascript">
+           /*<![CDATA[*/
 
+           /* Your existing Leaflet initialization code */
+           document.addEventListener("DOMContentLoaded", function () {
+               const map = L.map('map').setView([41.6086, 21.7453], 8);
+               L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                   attribution: '© OpenStreetMap contributors'
+               }).addTo(map);
+
+               var markerData = /*[[ ${objects} ]]*/ [];  // Thymeleaf expression
+
+               for (var i = 0; i < markerData.length; i++) {
+                   var marker = L.marker([markerData[i].longitude, markerData[i].latitude]).addTo(map);
+                   marker.on('click', function (e) {
+                       // Handle marker click
+                       var clickedMarker = e.target;
+                       updateObjectDiv(clickedMarker.options.objectInfo);
+                   });
+                   marker.options.objectInfo = markerData[i];
+               }
+               function updateObjectDiv(objectInfo) {
+                   // Update the "object" div content with information from the clicked marker
+                   var objectDiv = document.getElementById('object');
+                   objectDiv.innerHTML = '<h2>' + objectInfo.name + '</h2>' +
+                       '<p class="info-text">Вид на објект: ' + objectInfo.type + '</p>' +
+                       '<p class="info-text">X: ' + objectInfo.latitude + '</p>' +
+                       '<p class="info-text">Y: ' + objectInfo.longitude + '</p>' +
+                       '<p class="info-text">Wikidata: ' + (objectInfo.wikidata ? '<a class="wikidata-link" href="https://www.wikidata.org/wiki/' + objectInfo.wikidata + '" target="_blank">' + objectInfo.wikidata + '</a>' : 'Не е достапно') + '</p>';
+
+
+                   // Change the background color to white
+                   objectDiv.style.backgroundColor = 'white';
+               }
+           });
+           /*]]>*/
+       </script>
+       <div id="object"></div>
+   </div>
 </div>
 </body>
 </html>
