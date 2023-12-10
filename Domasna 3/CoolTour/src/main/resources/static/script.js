@@ -1,5 +1,3 @@
-
-
 function changeBackground(a){
     switch(a){
         case "site": document.getElementById("bg").style.backgroundImage = "url('/default.png')"; break;
@@ -20,6 +18,17 @@ function changeBackground(a){
 function Search(){
     changeBackground(document.getElementById("category").value);
 }
+$(document).ready(function() {
+    $('#myTable').DataTable({
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": false,
+        "autoWidth": false,
+        "pageLength": 10, // Number of rows to show per page
+    });
+});
 
 
 
