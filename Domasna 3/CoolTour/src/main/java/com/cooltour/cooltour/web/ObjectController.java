@@ -5,7 +5,9 @@ import com.cooltour.cooltour.model.Object;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 import java.util.List;
@@ -26,4 +28,16 @@ public class ObjectController {
         model.addAttribute("objects", objects);
         return "home";
     }
+
+
+    @PostMapping("/search")
+    public String search(@RequestParam String category, @RequestParam String query, Model model){
+
+       model.addAttribute("objects",objectService.filterByCategoryAndQuery(category,query));
+
+       return "home";
+    }
+
+
+
 }

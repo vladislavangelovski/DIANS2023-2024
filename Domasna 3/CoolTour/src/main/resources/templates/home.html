@@ -26,8 +26,11 @@
 </div>
 <div id="bg">
 
+    <form th:action="@{/home/search}" method="post">
+
+
     <div id="input">
-        <input type="text" value="Search for something.." id="searchinput">
+        <input type="text" value="Search for something.." name="query" id="searchinput">
         <select value="Филтрирај според категорија.." name="category" id="category">
             <option value="site" selected>Сите објекти</option>
             <option value="aircraft">Урнатини од авиони</option>
@@ -42,9 +45,10 @@
             <option value="monument">Споменици</option>
 
         </select>
-        <button onclick="Search()" id="search">Search</button>
+        <button type="submit" onclick="Search()" id="search">Search</button>
 
     </div>
+    </form>
     <div id="main">
         <div id="map"></div>
         <script th:inline="javascript">
