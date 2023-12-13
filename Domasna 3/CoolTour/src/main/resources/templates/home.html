@@ -51,6 +51,7 @@
             /*<![CDATA[*/
 
             /* Your existing Leaflet initialization code */
+
             document.addEventListener("DOMContentLoaded", function () {
                 const map = L.map('map').setView([41.6086, 21.7453], 8);
                 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -64,13 +65,18 @@
                     marker.on('click', function (e) {
                         // Handle marker click
                         var clickedMarker = e.target;
+
                         updateObjectDiv(clickedMarker.options.objectInfo);
                     });
                     marker.options.objectInfo = markerData[i];
                 }
                 function updateObjectDiv(objectInfo) {
+
                     // Update the "object" div content with information from the clicked marker
                     var objectDiv = document.getElementById('object');
+
+
+
                     objectDiv.innerHTML = '<h2>' + objectInfo.name + '</h2>' +
                         '<p class="info-text">Вид на објект: ' + objectInfo.type + '</p>' +
                         '<p class="info-text">X: ' + objectInfo.latitude + '</p>' +
@@ -78,8 +84,10 @@
                         '<p class="info-text">Wikidata: ' + (objectInfo.wikidata ? '<a class="wikidata-link" href="https://www.wikidata.org/wiki/' + objectInfo.wikidata + '" target="_blank">' + objectInfo.wikidata + '</a>' : 'Не е достапно') + '</p>';
 
 
-                    // Change the background color to white
-                    objectDiv.style.backgroundColor = 'white';
+                    // Fade in the object box
+
+                    Animacija();
+
                 }
             });
             /*]]>*/

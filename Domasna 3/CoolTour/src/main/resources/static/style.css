@@ -45,7 +45,7 @@ body {
     margin-top: 20px; opacity: 100%; color:grey;width: 25vw;height: 3vh;
 }
 #regbut{
-    margin-top: 40px; background-color: yellow; height: 40px; width: 100px;
+   background-color: yellow; height: 40px; width: 100px;margin-top: 50px;
 }
 input{
     min-width: 200px;
@@ -54,7 +54,8 @@ p{
     font-size: x-large; color: yellow; justify-content: right;
 }
 #regbg{
-    border: black 2px solid; background-color: rgba(0, 0, 0, 0.7); width: 70vw; height: 80vh; margin:auto; padding-top: 50px; display: block;
+    border: black 2px solid; background-color: rgba(0, 0, 0, 0.7); width: 70vw; height: 75vh; margin:auto; padding-top: 50px; display: block;
+
 }
 #part{
     height: fit-content;
@@ -99,7 +100,7 @@ p{
 }
 #nav > *:nth-child(1){
     padding-left: 5vw;
-    flex: 0 1 35vw;
+    flex: 0 1 32vw;
     margin: auto;
 
 }
@@ -115,7 +116,7 @@ p{
     min-height: 45px;
 }
 #nav > *:nth-child(4){
-    flex: 1 1 20vw;
+    flex: 1 1 24vw;
 }
 #nav > *:nth-child(5){
     flex: 0 1 20vw;
@@ -129,12 +130,29 @@ p{
     display: inline-flex; justify-content: center; margin-top: 1vw;
 }
 #map{
-    width:55vw; height:60vh;
-    min-width: 450px;
+    width:55vw; height:65vh;
+    min-width: 300px;
+
 }
 #object{
-    width:15vw; height:60vh;
-    min-width: 150px;
+    margin: auto;
+    width:15vw; height:65vh;
+    min-width: 300px;
+    justify-content: space-evenly;
+    margin-bottom: 10px;
+
+
+
+}
+
+#object >*{
+    height: fit-content;
+    padding: 5px;
+    margin: 1vh 1vw 1vh 1vw;
+    margin-bottom: 50px;
+}
+#object >*:nth-child(1){
+    margin-top:2vh;
 }
 #input > *:nth-child(1){
     width: 30vw;
@@ -210,21 +228,24 @@ p{
         display: block;
     }
     #main{
-
+margin-bottom: 50px;
         width: 100vw;
-        height: 500px;
+        height: 60vh;
         display: inline-block;
     }
     #map{
-        min-width: 100px;
+        margin:unset;
+        min-width: 300px;
         width: 100%;
         height: 400px;
     }
     #object{
-        min-width: 0;
-        width: 100vw;
-        height: 150px;
+        margin: unset;
+
+        width: 100%;
+
     }
+
 
 
 }
@@ -235,7 +256,7 @@ p{
     #main{
 
         width: 80vw;
-        height: 500px;
+
         display: inline-block;
     }
     #map{
@@ -244,21 +265,34 @@ p{
         height: 400px;
     }
     #object{
-        min-width: 0;
-        width: 100%;
-        height: 150px;
+        width: 80vw;
+        height:100px;
+        margin:auto;
+        justify-content: space-around;
+        display:inline-flex;
+    }
+    #object > *:nth-child(1){
+    margin: auto;
+          }
+    #object > *{
+        height: 60px;
+        margin: auto;
+        padding: 5px;
+        text-align: center;
+
     }
 
 
+
 }
-@media screen and (max-height: 600px){
+@media screen and (max-height: 650px){
     #input{
         display: block;
     }
     #main{
 
         width: 100%;
-        height: 500px;
+
         display: inline-block;
     }
     #map{
@@ -267,9 +301,11 @@ p{
         height: 300px;
     }
     #object{
-        min-width: 0;
         width: 100%;
-        height: 100px;
+        height:100px;
+        margin:auto;
+        justify-content: space-around;
+        display:inline-flex;
     }
 }
 @media screen and (max-width: 600px){
@@ -309,6 +345,9 @@ p{
 }
 
 @media  screen and (max-width:1000px) {
+    #regbut{
+        margin-top: 10px;
+    }
     #part > div:nth-child(1) > input:nth-child(3){
         margin-top: 0;
     }
@@ -331,7 +370,7 @@ p{
 
 
 }
-@media  screen and (max-width:600px) {
+@media  screen and (max-width:750px) {
 
     #regbg > :nth-child(1){
         padding: 0;
@@ -355,6 +394,8 @@ p{
 }
 @media  screen and (max-height:700px) {
     #regbut{
+        margin: 0;
+        padding: 0;
         height: 30px;
     }
     input{
@@ -378,3 +419,46 @@ p{
         font-size: smaller;
     }
 }
+@media  screen and (max-width:1650px) {
+    #object > *
+    {
+        font-size:medium;
+    }}
+@media  screen and (max-width:650px){
+    #object > *
+    {
+        font-size:small;
+    }}
+@media  screen and (max-width:550px) {
+    #object > *
+    {
+        font-size:x-small;
+    }}
+
+@media  screen and (max-height:600px) {
+    #object{
+        height: fit-content;
+
+
+        padding: 5px;
+    }
+    #object > *
+    {
+        height: fit-content;
+        font-size:small;
+    }}
+
+@media  screen and (max-width:400px) {
+    #main{
+        width: 100vw;
+    }
+    #object > *
+    {
+        font-size:xx-small;
+    }
+    #object{
+        padding-bottom: 50px;
+        width: 100vw;
+    }
+}
+
