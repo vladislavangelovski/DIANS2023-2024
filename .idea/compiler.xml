@@ -11,10 +11,6 @@
         <module name="CoolTour" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="CoolTour" target="19" />
-      <module name="CoolTourPrototype" target="19" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">

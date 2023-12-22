@@ -1,33 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log in</title>
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" type="text/css" href="/static/style.css">
 </head>
 <body>
   <div id="nav">
     <a class = "navs" href="/about-us" id="AS">About Us</a>
     <a  class = "navs" href="/home"  id="Cool">Cool</a>
-    <img class="navs" id="logo" onclick="window.location.href='/home'" src="/poentatanazhivotot.png" >
+    <img class="navs" id="logo" onclick="window.location.href='/home'" src="/static/poentatanazhivotot.png" >
     <a class = "navs" href="/home" id="Tour">Tour</a>
     <a class = "navs"  href="/login" id="Log" style="color: yellow;">Log in</a>
     <a class = "navs" href="/register" id="Reg" >Register</a>
 </div>
 <div id="bg">
-
+<form method="post" action="/login">
   <div id="loginbg" style="padding-bottom: 30px;  padding-top: 20px; border: black 2px solid;background-color: rgba(0, 0, 0, 0.7); width: 70vw; height: 73vh; justify-content: center; display: block; margin:auto;">
     <h1 style=" margin: auto; padding-top: -20px; justify-content: center; width: 70%; color:yellow;"> Добредојдовте во системот за најава на CoolTour!</h1>
-    <img style=" padding-top: 30px; width: 15vw; height: 15vw;" src="/poentatanazhivotot.png">
+    <img style=" padding-top: 30px; width: 15vw; height: 15vw;" src="/static/poentatanazhivotot.png">
     <p id="one">Внесете email или корисничко име:</p>
-    <input style=" opacity: 100%; color:grey; width: 30%; height: 1vw; min-width: 180px; min-height: 30px;" value="Email или корисничко име..">
+    <input style=" opacity: 100%; color:grey; width: 30%; height: 1vw; min-width: 180px; min-height: 30px;" id="username" name="username" placeholder="Корисничко име" required>
     <p id="two">Внесете лозинка:</p>
-    <input style=" opacity: 100%; color:grey; width: 30%; height: 1vw; margin: auto; min-width: 180px; min-height: 30px;"  value="Лозинка..">
-    <button onclick="LOGIN()"style="background-color: yellow; color: black; width: 70px; height: 30px;  display: block; justify-content: center; margin: auto; margin-top:10px">Најава</button>
+    <input style=" opacity: 100%; color:grey; width: 30%; height: 1vw; margin: auto; min-width: 180px; min-height: 30px;"  type="password" id="password" name="password" placeholder="Лозинка" required>
+    <th:block th:if="${hasError}">
+      <div id="errText" th:text="${error}" class="text-danger"></div>
+    </th:block>
+    <button style="background-color: yellow; color: black; width: 70px; height: 30px;  display: block; justify-content: center; margin: auto; margin-top:10px" type="submit">Најава</button>
   </div>
 
-
+</form>
 </div>
 </body>
 </html>

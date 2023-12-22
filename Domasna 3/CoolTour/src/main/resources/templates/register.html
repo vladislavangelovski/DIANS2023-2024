@@ -1,52 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" type="text/css" href="/static/style.css">
 </head>
 
 <body>
   <div id="nav">
     <a class = "navs" href="/about-us" id="AS">About Us</a>
     <a  class = "navs" href="/home"  id="Cool">Cool</a>
-    <img class="navs" id="logo" onclick="window.location.href='/home'" src="/poentatanazhivotot.png" >
+    <img class="navs" id="logo" onclick="window.location.href='/home'" src="/static/poentatanazhivotot.png" >
     <a class = "navs" href="/home" id="Tour">Tour</a>
     <a class = "navs"  href="/login" id="Log" >Log in</a>
     <a class = "navs" href="/register" id="Reg" style="color: yellow;"  >Register</a>
 </div>
-
+  <form th:method="post" action="/register" th:object="${user}">
 <div id="bg">
 
   <div id="regbg">
     <h1 style=" margin: auto; justify-content: center; width: 80%; color:yellow;"> Добредојдовте во системот за регистрација на CoolTour!</h1>
-    <img id="reglogo"  style=" padding-top: 30px; width: 10vw; height: 10vw;" src="/poentatanazhivotot.png">
+    <img id="reglogo"  style=" padding-top: 30px; width: 10vw; height: 10vw;" src="/static/poentatanazhivotot.png">
+
 
     <div id="part">
-
       <div style="margin:auto ; margin-top: 0; width: fit-content; height: fit-content; display: block; justify-content: center;">
-        <p>Внесете го вашето име и презме:</p>
-        <input id="name" value="Име..">
-        <input id="surname"  value="Презиме..">
-        <p>Внесете го вашето корисничко име:</p>
-        <input id="user" value="Корисничко име..">
+        <p>
+          <label for="name">Име</label>
+          <input type="text" id="name" name="name" placeholder="Име" required>
+        </p>
+        <p>
+          <label for="surname">Презиме</label>
+          <input type="text" id="surname" name="surname" placeholder="Презиме" required>
+        </p>
+        <p>
+          <label for="username">Корисничко име</label>
+          <input type="text" id="username" name="username" placeholder="Корисничко име" required>
+        </p>
       </div>
 
       <div style="margin:auto; margin-top:0; width: fit-content; height: fit-content; display: inline-block; justify-content: center;">
-        <p>Внесете email:</p>
-        <input id="email"value="Email..">
+        <p>
+          <label for="email">Емаил</label>
+          <input type="text" id="email" name="email" placeholder="Емаил" required>
+        </p>
         <p>Внесете лозинка:</p>
-        <input id="pas1"value="Лозинка..">
-        <input id="pas2"value="Повторете лозинка..">
-        
+        <p>
+          <label for="password">Лозинка</label>
+          <input type="password" id="password" name="password" placeholder="Лозинка" required>
+        </p>
+        <p>
+          <label for="repeatedPassword">Повторете лозинка</label>
+          <input type="password" id="repeatedPassword" name="repeatedPassword" placeholder="Повторете лозинка" required>
+        </p>
       </div>
- 
     </div>
-    <button id="regbut">Регистрација</button>
+      <th:block th:if="${hasError}">
+        <div id="errText" th:text="${error}" class="text-danger"></div>
+      </th:block>
+      <button id="regbut">Регистрација</button>
+
   </div>
-
 </div>
-
+  </form>
 </body>
 </html>

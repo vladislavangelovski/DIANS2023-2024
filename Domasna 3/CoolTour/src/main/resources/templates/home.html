@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-    <script src="/script.js"></script>
+    <script src="/static/script.js"></script>
     <script th:inline="javascript">
         /*<![CDATA[*/
         const baseUrl = /*[[@{/}]]*/ '';
@@ -19,10 +19,12 @@
 <div id="nav">
     <a class = "navs" href="/about-us" id="AS">About Us</a>
     <a  class = "navs" href="/home"  id="Cool" style="color: yellow;">Cool</a>
-    <img class="navs" id="logo" onclick="window.location.href='/home'" src="/poentatanazhivotot.png" >
+    <img class="navs" id="logo" onclick="window.location.href='/home'" src="/static/poentatanazhivotot.png" >
     <a class = "navs" href="/home" id="Tour" style="color: yellow;">Tour</a>
-    <a class = "navs"  href="/login" id="Log">Log in</a>
-    <a class = "navs" href="/register" id="Reg" >Register</a>
+    <a class="navs" th:if="${session.user != null}" th:href="@{/logout}" id="Logout">Logout</a>
+
+    <a class = "navs"  href="/login" id="Log" th:if="${session.user == null}">Log in</a>
+    <a class = "navs" href="/register" id="Reg" th:if="${session.user == null}">Register</a>
 </div>
 <div id="bg">
 
@@ -30,7 +32,7 @@
 
 
     <div id="input">
-        <input type="text" value="Search for something.." name="query" id="searchinput">
+        <input type="text" placeholder="Search for something.." name="query" id="searchinput">
         <select value="Филтрирај според категорија.." name="category" id="category">
             <option value="site" selected>Сите објекти</option>
             <option value="aircraft">Урнатини од авиони</option>
