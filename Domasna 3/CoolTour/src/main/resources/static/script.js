@@ -1,7 +1,11 @@
+
+function Search(){
+    changeBackground(document.getElementById("category").value);
+}
 function changeBackground(a){
-    console.log("Changing background to:", a);
+localStorage.setItem("LastBG",a);
     switch(a){
-        case "site": document.getElementById("bg").style.backgroundImage = "url('/static/default.png')"; break;
+        case "default": document.getElementById("bg").style.backgroundImage = "url('/static/default.png')"; break;
         case "aircraft": document.getElementById("bg").style.backgroundImage = "url('/static/aircraft.jpg')"; break;
         case "archeological_site": document.getElementById("bg").style.backgroundImage = "url('/static/archeological_site.png')"; break;
         case "battlefield": document.getElementById("bg").style.backgroundImage = "url('/static/battlefields.png')"; break;
@@ -13,13 +17,15 @@ function changeBackground(a){
         case "monastery": document.getElementById("bg").style.backgroundImage = "url('/static/monastery.png')"; break;
         case "monument": document.getElementById("bg").style.backgroundImage = "url('/static/monument.png')"; break;
     }
-    console.log("Element:", document.getElementById("bg"));
 }
+document.getElementById("mainform").addEventListener("submit", function(event) {
+    // Prevent the default form submission behavior
+    event.preventDefault()})
 
-function Search(){
 
-    changeBackground(document.getElementById("category").value);
-}
+
+
+
 function Animacija(){
 
     var d=document.getElementById('object');
@@ -54,3 +60,5 @@ function Animacija(){
    var ID=setInterval(AddOpacity,35);
 
 }
+
+

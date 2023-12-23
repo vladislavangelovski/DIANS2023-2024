@@ -32,16 +32,16 @@ body {
 #surname{
     margin-top: 20px;  opacity: 100%; color:grey; width: 25vw; height: 3vh;
 }
-#user{
+#username{
     opacity: 100%; color:grey; width: 25vw; height: 3vh;
 }
 #email{
     opacity: 100%; color:grey; width: 25vw; height: 3vh;
 }
-#pas1{
+#password{
     opacity: 100%; color:grey; width: 25vw; height: 3vh;
 }
-#pas2{
+#repeatedPassword{
     margin-top: 20px; opacity: 100%; color:grey;width: 25vw;height: 3vh;
 }
 #regbut{
@@ -74,9 +74,7 @@ p{
     background-position: center center;
     background-repeat: no-repeat;
     text-align:center;
-    margin:0px;
-    background-size: cover;
-    padding:0;
+    margin:0;
     background-image:url('/static/default.png');
     background-size: cover;
     height: 100vh;
@@ -85,11 +83,12 @@ p{
 #nav{
     background-color: black;
     margin: auto;
-    justify-content: space-between;
     width: 100vw;
     height:15vh;
     display: flex;
-    flex-wrap: nowrap;
+flex-wrap: nowrap;
+    align-items: center;
+
 }
 #errText{
     color: yellow;
@@ -98,40 +97,80 @@ p{
     font-size: 50px;
     color: white;
 }
-.navs{
 
+.navs{
     font-size: 50px;
 }
 #nav > *{
-    margin: auto;
+    margin: 0;
+    padding: 0;
 }
-#nav > *:nth-child(1){
-    padding-left: 5vw;
-    flex: 0 1 32vw;
-    margin: auto;
+#AS{
+    width:21vw;
+    float:left;
+    margin-right: auto;
+    margin-left: 5vw;
+    display: flex;
+    align-items: center;
 
 }
-#nav > *:nth-child(2){
-    flex: 1 1 20vw;
+#Cool{
+    min-width: 100px;
+    margin-left: -70px;
+    justify-content: flex-end;
+    align-items: center;
+    flex: 1;
+    flex-shrink: 0;
     text-align: right;
+    display: flex;
+
+
 }
 
-#nav > *:nth-child(3){
+#logo{
     height: 7vw;
     width: 10vw;
     min-width: 45px;
     min-height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
 }
-#nav > *:nth-child(4){
-    flex: 1 1 24vw;
+#Tour{
+    min-width: 100px;
+    text-align: left;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex: 1;
+    flex-shrink: 0;
 }
-#nav > *:nth-child(5){
-    flex: 0 1 20vw;
-    padding-right: 5px;
+#Log{
+    padding-right: 15px;
+    float: right;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+
 }
-#nav > *:nth-child(6){
-    margin-right: 15px;
-    flex: 0 1 20vw;
+#Reg{
+    float: right;
+    margin-left: 3vw;
+    margin-right: 4vw;
+    display: flex;
+    align-items: center;
+}
+#Logout{
+    width: 21vw;
+    float: right;
+    display: flex;
+    align-items: center;
+    text-align: right;
+    justify-content: flex-end;
+    margin-right: 5vw;
+    margin-left: auto;
 }
 #main{
     display: inline-flex; justify-content: center; margin-top: 1vw;
@@ -468,4 +507,5 @@ margin-bottom: 50px;
         width: 100vw;
     }
 }
+
 
