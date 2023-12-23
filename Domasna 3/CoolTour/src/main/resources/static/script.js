@@ -3,7 +3,7 @@ function Search(){
     changeBackground(document.getElementById("category").value);
 }
 function changeBackground(a){
-localStorage.setItem("LastBG",a);
+
     switch(a){
         case "default": document.getElementById("bg").style.backgroundImage = "url('/static/default.png')"; break;
         case "aircraft": document.getElementById("bg").style.backgroundImage = "url('/static/aircraft.jpg')"; break;
@@ -18,12 +18,6 @@ localStorage.setItem("LastBG",a);
         case "monument": document.getElementById("bg").style.backgroundImage = "url('/static/monument.png')"; break;
     }
 }
-document.getElementById("mainform").addEventListener("submit", function(event) {
-    // Prevent the default form submission behavior
-    event.preventDefault()})
-
-
-
 
 
 function Animacija(){
