@@ -42,13 +42,15 @@
 
 </style>
 <body>
-  <div id="nav">
-    <a class = "navs" href="/about-us" id="AS" style="color: yellow;">About Us</a>
-    <a  class = "navs" href="/home"  id="Cool" >Cool</a>
-    <img class="navs" id="logo" onclick="window.location.href='/home'" src="/static/poentatanazhivotot.png" >
-    <a class = "navs" href="/home" id="Tour" >Tour</a>
-    <a class = "navs"  href="/login" id="Log">Log in</a>
-    <a class = "navs" href="/register" id="Reg" >Register</a>
+<div id="nav">
+  <a class = "navs" href="/about-us" id="AS">About Us</a>
+  <a  class = "navs" href="/home"  id="Cool" style="color: yellow;">Cool</a>
+  <img class="navs" id="logo" onclick="window.location.href='/home'" src="/static/poentatanazhivotot.png" >
+  <a class = "navs" href="/home" id="Tour" style="color: yellow;">Tour</a>
+  <a class="navs" th:if="${session.user != null}" th:href="@{/logout}" id="Logout">Logout</a>
+
+  <a class = "navs"  href="/login" id="Log" th:if="${session.user == null}">Log in</a>
+  <a class = "navs" href="/register" id="Reg" th:if="${session.user == null}">Register</a>
 </div>
 <div id="bg">
 

@@ -18,8 +18,13 @@ public class ObjectServiceImpl implements ObjectService {
     }
 
     @Override
-    public Object findObjectByName(String name) {
+    public List<Object> findObjectByName(String name) {
         return objectRepository.findObjectByName(name);
+    }
+
+    @Override
+    public List<Object> findObjectByTypeOrName(String type, String name) {
+        return this.objectRepository.findObjectByTypeOrName(type, name);
     }
 
     @Override

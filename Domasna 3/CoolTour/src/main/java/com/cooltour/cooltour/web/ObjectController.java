@@ -30,14 +30,17 @@ public class ObjectController {
     }
 
 
-    @PostMapping("/search")
-    public String search(@RequestParam String category, @RequestParam String query, Model model){
+    @PostMapping("/search/searchByName")
+    public String searchByName(@RequestParam String category, @RequestParam String query, Model model){
 
-       model.addAttribute("objects",objectService.filterByCategoryAndQuery(category,query));
+       model.addAttribute("objects",objectService.findObjectByTypeOrName(category, query));
 
        return "home";
     }
+    @PostMapping("/search/searchByCategory")
+    public String searchByCategory(@RequestParam String category, Model model){
 
-
-
+        model.addAttribute("objects",objectService.findObjectByName(category));
+        return "home";
+    }
 }

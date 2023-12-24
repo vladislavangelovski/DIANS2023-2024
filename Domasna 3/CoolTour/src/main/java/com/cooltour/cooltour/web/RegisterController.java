@@ -2,6 +2,7 @@ package com.cooltour.cooltour.web;
 
 import com.cooltour.cooltour.model.exceptions.InvalidArgumentsException;
 import com.cooltour.cooltour.model.exceptions.PasswordsDoNotMatchException;
+import com.cooltour.cooltour.model.exceptions.UsernameAlreadyExistsException;
 import com.cooltour.cooltour.service.AuthService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,12 +33,16 @@ public class RegisterController {
                            @RequestParam String repeatedPassword,
                            @RequestParam String name,
                            @RequestParam String surname,
-                           @RequestParam String email) {
+                           @RequestParam String email,
+                           Model model) {
         try{
             this.authService.register(username, password, repeatedPassword, name, surname, email);
-            return "redirect:/login";
-        } catch (InvalidArgumentsException | PasswordsDoNotMatchException exception) {
-            return "redirect:/register?error=" + exception.getMessage();
+
+        } catch (InvalidArgumentsException | PasswordsDoNotMatchException | UsernameAlreadyExistsException exception) {
+            model.addAttribute("hasError", true);
+            model.addAttribute("error", exception.getMessage());
+            return "register";
         }
+        return "redirect:/login";
     }
 }

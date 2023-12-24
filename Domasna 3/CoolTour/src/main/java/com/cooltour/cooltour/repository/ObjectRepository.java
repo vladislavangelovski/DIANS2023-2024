@@ -10,9 +10,8 @@ import java.util.List;
 
 @Repository
 public interface ObjectRepository extends JpaRepository<Object, Long> {
-    Object findObjectByName(String name);
-
-
+    List<Object> findObjectByName(String name);
     List<Object> findObjectByNameContaining(String name);
     List<Object> findObjectByType(String type);
+    List<Object> findObjectByTypeOrName(String type, String name);
 }

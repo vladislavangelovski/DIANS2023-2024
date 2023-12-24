@@ -28,7 +28,7 @@
 </div>
 <div id="bg">
 
-    <form th:action="@{/home/search}" method="post" id="mainform">
+    <form th:action="@{/home/search/searchByName}" method="post" id="mainform">
 
 
     <div id="input">
@@ -36,7 +36,7 @@
         <select value="Филтрирај според категорија.." name="category" id="category">
             <option value="default" selected>Сите објекти</option>
             <option value="aircraft">Урнатини од авиони</option>
-            <option value="archeological_site">Археолошки локалитети</option>
+            <option value="archaeological_site">Археолошки локалитети</option>
             <option value="battlefield">Бојни полиња</option>
             <option value="boundary_stone">Гранични плочи</option>
             <option value="castle">Замоци</option>
@@ -45,9 +45,16 @@
             <option value="memorial">Меморијали</option>
             <option value="monastery">Манастири</option>
             <option value="monument">Споменици</option>
-
         </select>
         <button type="submit" onclick="Search()" id="search">Search</button>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                document.getElementById('category').addEventListener('change', function() {
+                    document.getElementById('mainform').submit();
+                });
+            });
+        </script>
 
     </div>
     </form>
